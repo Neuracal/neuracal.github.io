@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>唐代长安佛寺时空分布</title>
+  <meta charset="utf-8">
+  <!-- Leaflet CSS/JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <!-- D3.js -->
+  <script src="./js/d3.v7.js"></script>
+  <!-- 自定义样式 -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="navbar-title">点击长安：哪座寺庙在你脚下</div>
+    <!-- <div class="navbar-buttons">
+      把这里的代码改成不注释的，就有假导航栏按钮。
+      <button class="nav-button">首页</button>
+      <button class="nav-button">唐史</button>
+      <button class="nav-button active">寺庙</button>
+      <button class="nav-button">文创</button>
+      <button class="nav-button">关于</button>
+    </div> -->
+  </nav>
+
+  <div class="container">
+    <!-- 左中右三列包裹结构 -->
+    <div class="left-center-grid">
+      <!-- 第一行：标题 -->
+      <div class="title-cell">存在寺庙的坊</div>
+      <div class="title-cell">寺庙统计信息</div>
+      <div class="title-cell">寺庙的空间分布</div>
+
+      <!-- 第二行：内容 -->
+      <div id="sidebar" class="content-cell">
+        <div class="neighborhood-container">
+          <div class="neighborhood-column"></div>
+          <div class="neighborhood-column"></div>
+        </div>
+      </div>
+
+      <div id="sidebar-stat" class="content-cell">
+        <div class="stat-table-container">
+          <table class="temple-stats-table">
+            <thead>
+              <tr>
+                <th>类型</th>
+                <th>数量</th>
+                <th>占比</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>皇家寺庙</td>
+                <td>29</td>
+                <td>18%</td>
+              </tr>
+              <tr>
+                <td>舍宅为寺</td>
+                <td>28</td>
+                <td>18%</td>
+              </tr>
+              <tr>
+                <td>僧寺</td>
+                <td>121</td>
+                <td>77%</td>
+              </tr>
+              <tr>
+                <td>尼寺</td>
+                <td>36</td>
+                <td>23%</td>
+              </tr>
+              <tr class="total-row">
+                <td>总数</td>
+                <td>157</td>
+                <td>100%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- 图片容器 可以悬停鼠标即可放大的图片-->
+        <!-- <div class="stat-image-container">
+          <img src="image/time-variation.png" alt="寺庙时间图表" class="zoomable-image">
+        </div> -->
+
+        <!-- 放行行列列排列寺庙种类图标的地方 -->
+        <!-- <div id="temple-icons-container"></div> -->
+        <!-- 行行列列排列寺庙种类图标的图例方框 -->
+        <!-- <div class="legend-container">
+          <div class="legend">
+            <div class="legend-item">
+              <img src="image/monk.png" alt="僧寺" height="15" width="15">
+              <span>僧寺</span>
+            </div>
+            <div class="legend-item">
+              <img src="image/nun.png" alt="尼寺" height="15" width="15">
+              <span>尼寺</span>
+            </div>
+            <div class="legend-item">
+              <img src="image/royal.png" alt="其他庙" height="15" width="15">
+              <span>其他庙</span>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div id="map" class="content-cell"></div>
+    </div>
+
+    <!-- 最右侧 sidebar -->
+    <div id="sidebar-right">
+      <!-- <h2>寺庙类型</h2> -->
+      <div class="control-panel">
+        <div class="filter-item">
+          <img src="image/royal.svg" alt="皇家寺庙" class="filter-icon" height="15" width="15" />
+          <label for="filter-royal">皇家寺庙</label>
+          <input type="checkbox" id="filter-royal" class="filter-checkbox" value="royal">
+        </div>
+        <div class="filter-item">
+          <img src="image/house.svg" alt="舍宅为寺" class="filter-icon" height="15" width="15" />
+          <label for="filter-royal">舍宅为寺</label>
+          <input type="checkbox" id="filter-house" class="filter-checkbox" value="house">
+        </div>
+        
+        <div class="filter-item">
+          <img src="image/nun.svg" alt="尼寺" class="filter-icon" height="15" width="15" />
+          <label for="filter-nun">尼寺</label>
+          <input type="checkbox" id="filter-nun" class="filter-checkbox" value="nun" checked>
+        </div>
+        <div class="filter-item">
+          <img src="image/monk.svg" alt="僧寺" class="filter-icon" height="15" width="15" />
+          <label for="filter-monk">僧寺</label>
+          <input type="checkbox" id="filter-monk" class="filter-checkbox" value="monk" checked>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <!-- <h2>地图类型</h2> -->
+        <div class="radio-group">
+          <input type="radio" id="blank-map" name="map-type" value="blank" checked>
+          <label for="blank-map">空白地图</label>
+          
+          <input type="radio" id="labeled-map" name="map-type" value="labeled">
+          <label for="labeled-map">坊名地图</label>
+          
+          <input type="radio" id="functional-map" name="map-type" value="functional">
+          <label for="functional-map">坊功能区地图</label>
+        </div>
+      </div>
+
+      <div class="image-container">
+        <img src="image/function-area-legend.png" alt="描述文字" class="sidebar-image">
+      </div>
+    </div>
+  </div>
+
+  <!-- D3.js 时间轴 -->
+  <div id="timeline"></div>
+  <div id="red-line"></div>
+  <div id="year-tooltip" style="position: absolute; display: none;"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

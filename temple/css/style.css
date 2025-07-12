@@ -1,0 +1,557 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /* background-image: url("../image/background.png"); */
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* 可选，使背景固定 */
+  font-family: "Microsoft YaHei", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  margin: 10px 0; /* 重置默认的上下边距 */
+  height: 40px; /* 固定标题高度 */
+}
+
+h2 {
+  font-size: large;
+}
+
+.container {
+  display: flex;
+  height: calc(80vh);
+  overflow: hidden;
+}
+
+.left-center-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 3fr;
+  grid-template-rows: 30px auto; /* 上排标题高度30px，下排内容自动 */
+  gap: 5px;
+  flex: 6;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 标题行样式（图中1、2、3） */
+.title-cell {
+  font-weight: bold;
+  background-color: transparent;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-family: "楷体", "KaiTi", "STKaiti", serif; /* 添加楷体 */
+}
+
+.title-cell:first-child {
+  padding-left: 24px; /* 向右移动 */
+}
+
+/* 内容单元格（图中4、5、6） */
+.content-cell {
+  background-color: transparent;
+  /* padding: 10px; */
+  overflow-y: auto;
+}
+
+#map {
+  flex: 2;
+  height: 100%;
+  min-height: 300px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+#sidebar {
+  flex: 1;
+  /* padding: 10px; */
+  padding-right: 10px;
+  background-color: transparent;
+  overflow-y: auto;
+  position: relative;
+  direction: rtl;
+}
+
+#sidebar >* {
+  direction: ltr;
+}
+
+#sidebar-right { /*最右边的sidebar*/
+  flex: 1;
+  padding: 0 10px 10px 10px;
+  background-color: transparent;
+  overflow-y: auto;
+  position: relative;
+}
+
+#sidebar-stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 统计表格容器样式 */
+.stat-table-container {
+  margin-bottom: 10px;
+  height: 100%;
+  overflow: auto;
+}
+
+/* 寺庙统计表格样式 */
+.temple-stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* border-radius: 5px; */
+  overflow: hidden;
+}
+
+.temple-stats-table th,
+.temple-stats-table td {
+  padding: 12px 0;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.temple-stats-table td:first-child,
+.temple-stats-table th:first-child {
+  padding-left: 8px; /* 仅左侧增加内边距 */
+}
+
+.temple-stats-table td:last-child,
+.temple-stats-table th:last-child {
+  text-align: right;    /* 文字右对齐 */
+  padding-right: 8px;  /* 右侧增加内边距（调整这个值控制间距） */
+}
+
+.temple-stats-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.temple-stats-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.temple-stats-table .total-row {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+.stat-image-container {
+  height: 50%; /* 占据下半部分空间 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stat-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 图片默认样式 */
+.zoomable-image {
+  transition: none;
+}
+
+/* 鼠标悬停时：图片放大并悬浮在最上层 */
+.zoomable-image:hover {
+  position: fixed; /* 脱离文档流，悬浮在视口中 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1); /* 居中并放大 */
+  z-index: 9999; /* 确保在最上层 */
+  max-width: 80vw; /* 限制最大宽度 */
+  max-height: 80vh; /* 限制最大高度 */
+  object-fit: contain; /* 保持比例 */
+  background: white; /* 可选：添加背景色 */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* 添加阴影增强视觉效果 */
+  cursor: zoom-out;
+}
+
+.control-panel {
+  padding-top: 10px;
+  background: transparent;
+}
+
+/* 图片容器样式 */
+.image-container {
+  flex: 1; /* 占据剩余所有空间 */
+  margin-top: 15px; /* 与控制面板的间距 */
+  overflow: hidden; /* 防止图片溢出 */
+  position: relative;
+  background-color: transparent;
+}
+
+/* 图片样式 */
+.sidebar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 保持图片比例同时填满容器 */
+  object-position: bottom; /* 图片居中显示 */
+}
+
+/* 按钮容器样式 */
+.button-container {
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* 单选按钮组样式 */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radio-group input[type="radio"] {
+  display: none; /* 隐藏原生单选按钮 */
+}
+
+.radio-group label {
+  display: block;
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 13px;
+}
+
+.radio-group label:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.radio-group input[type="radio"]:checked + label {
+  /* background-color: #c62828; */
+  background-image: url("../image/navigatebar-background.png");
+  color: white;
+  font-weight: bold;
+}
+
+#temple-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#temple-type {
+  width: 100%;
+  padding: 5px;
+}
+
+/* D3时间轴样式 */
+#timeline {
+  width: 100%;                   /* 占满父容器宽度 */
+  padding: 0;               /* 左右内边距 */
+  margin: -25px auto 0;          /* 上边距负值，水平居中 */
+  box-sizing: border-box;        /* 关键！让padding包含在width内 */
+  background-color: transparent;
+  position: relative;
+  z-index: 100;
+  overflow: visible;             /* 防止内容被截断 */
+}
+
+#timeline svg {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* 特殊刻度标签样式 */
+.special-tick-label {
+  font-size: 14px;
+  fill: #000000;
+  text-shadow: 0 0 2px white;
+  transition: fill 0.2s ease; /* 添加颜色过渡效果 */
+}
+
+/* 特殊刻度图标样式 */
+.special-tick-image {
+  pointer-events: none; /* 让点击穿透到下层元素 */
+}
+
+/* 事件工具提示样式 */
+.event-tooltip h3 {
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.event-tooltip p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#timeline .tick-label {
+  font-size: 15px;
+  fill: #666;
+}
+
+#timeline .handle {
+  fill: #e67764;
+  cursor: grab;
+}
+
+#timeline .handle.dragging {
+  fill: #a74f40;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+#timeline .handle:active {
+  cursor: grabbing;
+}
+
+#year-display {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: large;
+}
+
+#year-tooltip {
+  position: fixed;
+  z-index: 9999; /* 确保在最上层 */
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 60px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  pointer-events: none; /* 防止干扰鼠标事件 */
+}
+
+#year-tooltip:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #4CAF50 transparent transparent transparent;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filter-item label {
+  font-size: 13px;
+}
+
+/* 选择第二个filter-item（"舍宅为寺"是第二个） */
+.filter-item:nth-child(2) {
+  margin-bottom: 30px;
+}
+
+.filter-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.filter-checkbox {
+  margin-left: 10px;
+}
+
+.neighborhood-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.neighborhood-column {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.neighborhood-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-size: 12px;
+}
+
+.neighborhood-item:hover {
+  color: #ffeb3b; /* 鼠标悬停时的颜色 */
+}
+
+/* .neighborhood-icon {
+  height: 1em;
+  width: 20px;
+  margin-left: 5px;
+  background-color: #8bc34a;
+} */
+
+.neighborhood-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.neighborhood-percent {
+  margin-left: 8px;
+  width: 35px;
+  text-align: right;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.legend-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* 图例样式 */
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+  /* box-shadow: 0 0 5px rgba(0,0,0,0.1); */
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 寺庙图标排列样式 */
+#temple-icons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.temple-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.temple-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* 寺庙弹窗样式 */
+.temple-popup .leaflet-popup-content-wrapper {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.temple-popup .leaflet-popup-content {
+  margin: 10px;
+  line-height: 1.5;
+}
+
+.temple-popup .leaflet-popup-content h3 {
+  margin: 0 0 10px;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.temple-popup .leaflet-popup-content p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.temple-popup .leaflet-popup-tip {
+  background: #fff;
+}
+
+/* 导航栏样式 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #c62828;*/
+  background-image: url("../image/navigatebar-background.png");
+  color: white;
+  /* 上 右 下 左  或者 上下 左右*/
+  padding: 0 20px 0 20px;
+  height: 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.navbar-title {
+  font-family:  "黑体", "SimHei", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-button {
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: "Microsoft YaHei", sans-serif;
+}
+
+.nav-button:hover {
+  background-color: #8e0000; /* 鼠标悬停时的深红色 */
+}
+
+.nav-button.active {
+  background-color: white;
+  color: #c62828;
+  font-weight: bold;
+}
+
+.nav-button:focus {
+  outline: none;
+}
+
+/**时间轴的红线*/
+#red-line {
+  position: absolute;
+  bottom: 25px; /* 调整这个值使其位于时间轴上方合适位置 */
+  left: 0;
+  width: 100%;
+  height: 5px; /* 线粗 */
+  background-color: transparent;
+  z-index: 99; /* 确保它在时间轴下方 */
+}

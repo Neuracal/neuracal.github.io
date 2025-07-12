@@ -1,0 +1,506 @@
+[
+    {
+        "name": "不详",
+        "total": 19,
+        "royal": 1,
+        "house": 1,
+        "monk": 18,
+        "nun": 1
+    },
+    {
+        "name": "丰乐坊",
+        "total": 4,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 2
+    },
+    {
+        "name": "义宁坊",
+        "total": 2,
+        "royal": 1,
+        "house": 1,
+        "monk": 1,
+        "nun": 1
+    },
+    {
+        "name": "休祥坊",
+        "total": 5,
+        "royal": 2,
+        "house": 2,
+        "monk": 2,
+        "nun": 3
+    },
+    {
+        "name": "修德坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "光宅坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "光德坊",
+        "total": 3,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 1
+    },
+    {
+        "name": "兴化坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "兴宁坊",
+        "total": 3,
+        "royal": 2,
+        "house": 2,
+        "monk": 3,
+        "nun": 0
+    },
+    {
+        "name": "兴庆坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "和平坊",
+        "total": 2,
+        "royal": 2,
+        "house": 2,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "嘉会坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "大宁坊",
+        "total": 2,
+        "royal": 1,
+        "house": 1,
+        "monk": 1,
+        "nun": 1
+    },
+    {
+        "name": "太平坊",
+        "total": 3,
+        "royal": 1,
+        "house": 1,
+        "monk": 3,
+        "nun": 0
+    },
+    {
+        "name": "安业坊",
+        "total": 3,
+        "royal": 0,
+        "house": 0,
+        "monk": 0,
+        "nun": 3
+    },
+    {
+        "name": "安仁坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "安兴坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "安定坊",
+        "total": 4,
+        "royal": 1,
+        "house": 0,
+        "monk": 4,
+        "nun": 0
+    },
+    {
+        "name": "安邑坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "宜平坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "宜阳坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "宣平坊",
+        "total": 2,
+        "royal": 1,
+        "house": 1,
+        "monk": 1,
+        "nun": 1
+    },
+    {
+        "name": "居德坊",
+        "total": 3,
+        "royal": 1,
+        "house": 1,
+        "monk": 3,
+        "nun": 0
+    },
+    {
+        "name": "崇义坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "崇仁坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "崇化坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 1
+    },
+    {
+        "name": "崇德坊",
+        "total": 4,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 2
+    },
+    {
+        "name": "崇贤坊",
+        "total": 5,
+        "royal": 1,
+        "house": 1,
+        "monk": 2,
+        "nun": 3
+    },
+    {
+        "name": "布政坊",
+        "total": 5,
+        "royal": 1,
+        "house": 1,
+        "monk": 4,
+        "nun": 1
+    },
+    {
+        "name": "常乐坊",
+        "total": 4,
+        "royal": 1,
+        "house": 1,
+        "monk": 4,
+        "nun": 0
+    },
+    {
+        "name": "平康坊",
+        "total": 3,
+        "royal": 1,
+        "house": 1,
+        "monk": 3,
+        "nun": 0
+    },
+    {
+        "name": "延寿坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "延康坊",
+        "total": 2,
+        "royal": 1,
+        "house": 1,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "延福坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "开化坊",
+        "total": 2,
+        "royal": 1,
+        "house": 1,
+        "monk": 1,
+        "nun": 1
+    },
+    {
+        "name": "开明坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "怀德坊",
+        "total": 4,
+        "royal": 0,
+        "house": 0,
+        "monk": 4,
+        "nun": 0
+    },
+    {
+        "name": "怀远坊",
+        "total": 2,
+        "royal": 1,
+        "house": 1,
+        "monk": 1,
+        "nun": 1
+    },
+    {
+        "name": "敦义坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 1
+    },
+    {
+        "name": "敦化坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "新昌坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "昭国坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 0,
+        "nun": 1
+    },
+    {
+        "name": "晋昌坊",
+        "total": 2,
+        "royal": 1,
+        "house": 1,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "普宁坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "曲江坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "曲池坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "来庭坊",
+        "total": 1,
+        "royal": 1,
+        "house": 1,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "永乐坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 1
+    },
+    {
+        "name": "永兴坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "永嘉坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "永平坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 0,
+        "nun": 1
+    },
+    {
+        "name": "群贤坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 0,
+        "nun": 2
+    },
+    {
+        "name": "胜业坊",
+        "total": 3,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 1
+    },
+    {
+        "name": "通义坊",
+        "total": 1,
+        "royal": 0,
+        "house": 0,
+        "monk": 0,
+        "nun": 1
+    },
+    {
+        "name": "道政坊",
+        "total": 1,
+        "royal": 1,
+        "house": 1,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "醴泉坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 1,
+        "nun": 1
+    },
+    {
+        "name": "金城坊",
+        "total": 4,
+        "royal": 0,
+        "house": 0,
+        "monk": 3,
+        "nun": 1
+    },
+    {
+        "name": "长乐坊",
+        "total": 1,
+        "royal": 1,
+        "house": 1,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "长寿坊",
+        "total": 4,
+        "royal": 2,
+        "house": 2,
+        "monk": 4,
+        "nun": 0
+    },
+    {
+        "name": "青龙坊",
+        "total": 2,
+        "royal": 0,
+        "house": 0,
+        "monk": 2,
+        "nun": 0
+    },
+    {
+        "name": "靖善坊",
+        "total": 1,
+        "royal": 1,
+        "house": 1,
+        "monk": 1,
+        "nun": 0
+    },
+    {
+        "name": "靖安坊",
+        "total": 2,
+        "royal": 1,
+        "house": 1,
+        "monk": 0,
+        "nun": 2
+    },
+    {
+        "name": "颁政坊",
+        "total": 6,
+        "royal": 1,
+        "house": 1,
+        "monk": 4,
+        "nun": 2
+    }
+]
